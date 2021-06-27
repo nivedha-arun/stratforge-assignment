@@ -4,13 +4,13 @@ import {BrowserRouter, Route} from "react-router-dom"
 import History from './components/History';
 import { Homepage } from './components/Homepage';
 import { Rockets } from './components/Rockets';
-import { Launches } from './components/Launches';
+import { Ships } from './components/Ships';
 import { Details } from './components/DetailsScreen'
  
 function App() {
   const [history, setHistory] = useState([]);
   const [rockets, setRockets] = useState([]);
-  const [launches, setLaunches] = useState([]);
+  const [ships, setShips] = useState([]);
 
   const homescreen = [{
     id: "1",
@@ -41,16 +41,16 @@ function App() {
     setRockets(response);
   }
 
-  const fetchLaunches = async() => {
-    const response = await fetch('https://api.spacexdata.com/v3/launches/past')
+  const fetchShips = async() => {
+    const response = await fetch('https://api.spacexdata.com/v3/ships')
     .then((response) => response.json())
-    setLaunches(response);
+    setShips(response);
   }
 
   useEffect(() => {
     fetchHistory()
     fetchRockets()
-    fetchLaunches()
+    fetchShips()
   }, [])  
 
   return (
@@ -62,7 +62,7 @@ function App() {
         </div>
         <div className="links">
         <a href="/history">History</a>
-        <a href="/launches">Launches</a>
+        <a href="/ships">Ships</a>
         <a href="/rockets">Rockets</a>
       </div>
       </div>
@@ -73,7 +73,7 @@ function App() {
         )
       })};
       </div>
-      <div className={window.location.pathname === "/history" ? "grid" : "hide"}>
+      <div className={window.location.pathname === "/history" ? "grid gridhistory" : "hide"}>
       {history.map((record) => {
         return( 
           <Route path="/history" component={() => <History key={record.id} record={record}/>} />
@@ -87,14 +87,14 @@ function App() {
         )
       })}
       </div>
-      <div className={window.location.pathname === "/launches" ? "grid" : "hide"}>
-      {launches.map((record) => {
+      <div className={window.location.pathname === "/ships" ? "grid" : "hide"}>
+      {ships.map((record) => {
         return( 
-          <Route path="/launches" component={() => <Launches key={record.flight_number} record={record}/>} />
+          <Route path="/ships" component={() => <Ships key={record.ship_id} record={record}/>} />
         )
       })}
       </div>
-      <Route path="/details" component={() => <Details />} />
+      <Route path="/details" component={() => <Details key=""/>} />
     </div>
     </BrowserRouter>
   );

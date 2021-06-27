@@ -5,7 +5,8 @@ export const Rockets = ({record}) => {
   const history = useHistory();
   const handleClick = () => history.push({
     pathname: '/details',
-    state: { detail: record }
+    state: { detail: record },
+    navigatedFrom : "Rockets"
   });
 
     return(
@@ -19,7 +20,7 @@ export const Rockets = ({record}) => {
         </div>
         <div className="flip-details">
         <h2>{record.description}</h2>
-        <button type="button" onClick={handleClick}>Read More...</button>
+        <button className="readmore" type="button" onClick={handleClick}>Read More...</button>
         </div>
       </div>
       </div>

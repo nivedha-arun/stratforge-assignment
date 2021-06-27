@@ -65,14 +65,17 @@
   font-weight: 300;
 }
 
-.grid.gridrocket{
-  top: 2rem;
+.grid.gridhistory{
+  width: 95%;
+  grid-gap: 16rem;
+  grid-template-columns: repeat(3, minmax(200px, 1fr));
+  align-items: stretch;
 }
 
 .grid{
   height: 100%;
   width: 100%;
-  margin: 0px 1rem;
+  margin: 0px 3rem;
   top: 6rem;
   grid-gap: 30px;
   display: grid;
@@ -91,6 +94,10 @@
   width: 250px;
 }
 
+.card-details h2{
+  color: #fff;
+}
+
 .card{
   display: flex;
   margin: auto;
@@ -99,7 +106,8 @@
 }
 
 .card, .container{
-  width: 28%;
+  top: 1rem;
+  width: 100%;
   height: 49%;
 }
 
@@ -109,8 +117,8 @@
   box-shadow: 2px 2px 6px 6px rgba(0, 0, 0, 0.3);
   border-radius: 20px;
   text-align: center;
-  width: 97%;
-  height: 100%;
+  width: 88%;
+  height: 105%;
   transition: transform .3s;
 }
 
@@ -152,6 +160,18 @@
   backface-visibility: hidden;
 }
 
+.history-card{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  background-color: #bbb;
+  color: #686868;
+  transform: rotateY(180deg);
+  padding: 2rem;
+}
+
 .card-details {
   background-color: #bbb;
   color: black;
@@ -161,7 +181,21 @@
   background-color: #bbb;
   color: #686868;;
   transform: rotateY(180deg);
-  padding: 3rem;
+  padding: 2rem;
+}
+
+.flip-details h2{
+  font-weight: 400;
+}
+
+.readmore{
+  background-color: inherit;
+  border: none;
+  color: #414141;
+  cursor: pointer;
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding: 15px;
 }
 
 .card-text{
@@ -180,13 +214,80 @@
   position: relative;
 }
 
+.title{
+  color: white;
+  padding-top: 17rem;
+  width: 81%;
+  display: block;
+  margin: auto;
+  position: relative;
+  font-size: 3rem;
+  text-transform: uppercase;
+  text-shadow: 1px 1px #000;
+}
+
 .info h1{
+  font-weight: 100;
+  text-transform: capitalize;
   display: inline;
+}
+
+.info .info-title{
+  font-size: 3rem;
+  font-weight: 700;
 }
 
 .info h1:last-child{
   float: right;
 }
+
+.description{
+  font-size: 2rem;
+  width: 100%;
+  padding: 0px 13rem 6rem;
+  color: white;
+  position: absolute;
+  top: 200%;
+  overflow-wrap: break-word;
+}
+
+.description h1{
+  font-weight: 500;
+  line-height: 10rem;
+}
+
+.content-title {
+  color: #fefefe;
+  text-align: center;
+  position: relative;
+  top: -1.3rem;
+  width: 100%;
+  background-color: grey;
+  height: 7rem;
+  border-radius: 20px 20px 0 0;
+  padding-top: 20px;
+}
+
+.content-title h1{
+  font-weight: 400;
+}
+
+.secondary-content {
+  position: relative;
+  top: -1rem;
+  text-align: justify;
+  margin: 30px;
+}
+
+.secondary-content h2{
+  font-weight: 500;
+}
+
+.secondary-content .readmore{
+  padding: 33px 0 0;
+  text-shadow: 1px 1px #ffdfdf;
+}
+
 
 @media (max-width: 768px){
   .grid{

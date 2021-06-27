@@ -1,60 +1,91 @@
-import { useHistory } from 'react-router-dom'; 
-import ReactTable from "react-table";  
+import { useHistory } from 'react-router-dom';
 
 export const Details = () => {
     let tableDets = []
+    var image = "", title= "", description= "";
     const history = useHistory();
     var detail = history.location.state.detail;
+    var navigation = history.location.navigatedFrom;
+    if (navigation === "Rockets") {
+        var params = ["company", "diameter", "height", "mass", "cost_per_launch", "success_rate_pct"]
+        image = detail.flickr_images[1];
+        title = detail.rocket_name;
+        description = detail.description;
 
-    var params = ["company", "diameter", "height", "mass", "cost_per_launch", "success_rate_pct"]
-
-    params.map((value) => {
-        var info = "";
-        if(detail[value]["meters"]){
-            info = detail[value]["meters"] + " meters";
-        }
-        else if(detail[value]["kg"]){
-            info = detail[value]["kg"] + " kg";
-        }
-        else{
-            info = detail[value];
-        }
-        return (
-            tableDets.push({
-                name : value,
-                data : info
-            })
+        params.map((value) => {
+            var info = "";
+            if (detail[value]["meters"]) {
+                info = detail[value]["meters"] + " meters";
+            }
+            else if (detail[value]["kg"]) {
+                info = detail[value]["kg"] + " kg";
+            }
+            else {
+                info = detail[value];
+            }
+            return (
+                tableDets.push({
+                    name: value,
+                    data: info
+                })
+            )
+        })
+    }
+    else if(navigation === "Ships"){
+        image = detail.image;
+        title = detail.ship_name;
+        if(detail.url){
+        description = "For more details refer to this link ("+detail.url+")";}
+        let param = ["ship_name", "roles", "year_built", "missions", "weight_kg", "home_port"];
+        let info = "";
+        
+        param.map((value) => {
+            if(detail[value]){
+            if (value === "missions"){
+                info = detail[value][0].name;
+            }
+            else{
+                info = detail[value];
+            }}
+            return(
+                tableDets.push({
+                    name : value,
+                    data : info
+                }))}
         )
-    })
+    }
 
-    console.log(tableDets);
 
-    return(
+    return (
         <div className="detailsScreen">
-            <div className="detailsBackground" 
+            <div className="detailsBackground"
                 style={{
                     position: "absolute",
-                    backgroundImage: `url(${detail.flickr_images[1]})`,
-                    backgroundSize: "cover", 
-                    width: "100%", 
+                    backgroundImage: `url(${image})`,
+                    backgroundSize: "cover",
+                    width: "100%",
                     height: "100%"
                 }}>
-            <div className="title">
-                <h1>{detail.rocket_name}</h1>
+                <div className="title">
+                    <h1>{title}</h1>
                 </div>
             </div>
             <div className="info">
-                <h1> Overview </h1>
+                <h1 className="info-title"> Overview </h1>
                 {tableDets.map((record) => {
                     return (
                         <div>
-                        <h1>{record.name}</h1>
-                        <h1>{record.data}</h1>
+                            <h1>{record.name}</h1>
+                            <h1>{record.data}</h1>
                         </div>
                     )
                 })}
             </div>
+            <div className={description ? "description" : "hide"}>
+                <h1>Description</h1>
+                <p>{description}</p>
+            </div>
         </div>
 
     )
-} 
+}
