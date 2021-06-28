@@ -240,7 +240,7 @@
   margin: auto;
   width: 50%;
   color: white;
-  top: 55rem;
+  top: 42rem;
   position: relative;
 }
 
@@ -277,7 +277,7 @@
   padding: 0px 13rem 6rem;
   color: white;
   position: absolute;
-  top: 180%;
+  top: 200%;
   overflow-wrap: break-word;
 }
 
@@ -342,6 +342,10 @@
     bottom: 4rem;
     font-size: 1.5rem;
   }
+
+  .description {
+    top: 200%;
+  }
 }
 
 @media (max-width: 768px){
@@ -384,7 +388,7 @@
   .description {
     font-size: 1.2rem;
     padding: 0px 7rem 6rem;
-    top: 212%;
+    top: 185%;
   }
 
   .navigation .links{
