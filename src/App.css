@@ -345,6 +345,7 @@
 }
 
 @media (max-width: 768px){
+
   .grid, .grid.gridhistory{
     grid-template-columns: repeat(2, 1fr);
   }
@@ -383,7 +384,7 @@
   .description {
     font-size: 1.2rem;
     padding: 0px 7rem 6rem;
-    top: 187%;
+    top: 212%;
   }
 
   .navigation .links{
@@ -421,9 +422,16 @@
 }
 
 @media (max-width: 500px){
-
-  .logo img{
+  .logo img {
     width: 43%;
+  }
+
+  .info h1 {
+    font-size: .8rem;
+  }
+
+  .title{
+    font-size: 1.5rem;
   }
 
   .grid, .grid.gridhistory{
@@ -435,11 +443,16 @@
     font-weight: 100;
     font-size: 1rem;
   }
+
+  .history-flip h2 {
+    height: 10rem;
+  }
     
   .info {
     line-height: 3rem;
-    margin: 20px 5rem;
+    margin: 20px 2rem;
     top: 39rem;
+    width: 74%;
   }
 
   .readmore {
@@ -448,9 +461,10 @@
   }
 
   .description {
-    font-size: 1.2rem;
-    width: 123%;
-    padding: 23px 0rem 5rem 4rem;
+    font-size: 1rem;
+    width: 90%;
+    padding: 12px 0rem 5rem 2rem;
+    top: 178%;
   }
 
   .image .section-text {
