@@ -68,7 +68,7 @@
   text-shadow: 1px 1px #000;
   text-align: left;
   position: absolute;
-  bottom: 14rem;
+  bottom: 5rem;
   margin-left: 6rem;
   text-transform: uppercase;
   color: #fff;
@@ -226,6 +226,7 @@
 }
 
 .card-text h1{
+  font-size: 1.5rem;
   color: black;
   text-shadow: none;
 }
