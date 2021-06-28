@@ -24,5 +24,4 @@ export const Rockets = ({record}) => {
         </div>
       </div>
       </div>
-      
       )}

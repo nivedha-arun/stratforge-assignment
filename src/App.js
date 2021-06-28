@@ -1,16 +1,29 @@
 import './App.css';
+import Logo from './assets/spacex_logo.png'
 import { useEffect, useState } from 'react';
 import {BrowserRouter, Route, Switch} from "react-router-dom"
 import History from './components/History';
 import { Homepage } from './components/Homepage';
 import { Rockets } from './components/Rockets';
 import { Ships } from './components/Ships';
-import { Details } from './components/DetailsScreen'
+import { Details } from './components/DetailsScreen';
+import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
  
 function App() {
   const [history, setHistory] = useState([]);
   const [rockets, setRockets] = useState([]);
   const [ships, setShips] = useState([]);
+
+  const handleMenuClick = () => {
+    var display = document.getElementById('nav')
+    if(display.style.display === "block")
+    {
+      display.style.display = "none";
+    }
+    else{
+      display.style.display = "block";
+    }
+  }
 
   const homescreen = [{
     id: "1",
@@ -59,13 +72,19 @@ function App() {
     <div className="App">
       <div className="navigation">
         <div className="logo">
-          <a href="/"><img src="/assets/spacex_logo.png" alt="Logo"/></a>
+          <a href="/"><img src={Logo} alt="Logo"/></a>
         </div>
-        <div className="links">
+        <div id="nav" className="links">
+          <div className="nav">
         <a href="/history">History</a>
         <a href="/ships">Ships</a>
         <a href="/rockets">Rockets</a>
+        </div>
       </div>
+      <label for="">
+          < AiOutlineMenu className="menu-btn" onClick={handleMenuClick}/>
+          < AiOutlineClose className="close-btn"/>
+      </label>
       </div>
       <div className={window.location.pathname === "/" ? "home" : "hide"}>
       {homescreen.map((detail)=> {
@@ -95,7 +114,7 @@ function App() {
         )
       })}
       </div>
-      <Route path="/details" component={() => <Details key=""/>} />
+      <Route path="/details" component={() => <Details />} />
     </div>
     </Switch>
     </BrowserRouter>
