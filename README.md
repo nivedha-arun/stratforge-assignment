@@ -1,70 +1,53 @@
-# Getting Started with Create React App
+## Project Name & Pitch
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+my-spacex-app 
 
-## Available Scripts
+This application can be used to know the past, latest and upcoming activities going on with the SpaceX company in detail.
+I have used ReactJs, React-Router, Javascript, CSS and HTML to build this.
 
-In the project directory, you can run:
+## Deployed URL 
 
-### `npm start`
+I have deployed this project in Netlify
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+	URL : https://my-spacex-app.netlify.app/
+	 
+## Project Status
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+For the User to filter the list in the sub menu page and the details page for History screen is in progress.
 
-### `npm test`
+## Installation and Setup Instructions
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Clone down this repository. You will need `node` and `npm` installed globally on your machine.  
 
-### `npm run build`
+Installation:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+`npm install`   
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+To Start Server:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+`npm start`  
 
-### `npm run eject`
+To Visit App:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+`localhost:3000/`
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Reflection
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+I have developed this application in 2.5 days and my main goal being able to give you an understanding about the knowledge I have in these technologies.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+In the given time I was able to develop,
 
-## Learn More
+Home Screen with Menu's (History, Ships and Rockets)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Sub Pages for the Menu Items
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Details Page for the selected record.
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+If I had additional time,
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+ I would have been able to develop the filter and sort functionality for the list. 
+ 
+ Provided a better UI with animations and proper responsiveness
+ 
+ 
