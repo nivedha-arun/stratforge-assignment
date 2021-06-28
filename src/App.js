@@ -1,28 +1,44 @@
 import './App.css';
 import Logo from './assets/spacex_logo.png'
-import { useEffect, useState } from 'react';
-import {BrowserRouter, Route, Switch} from "react-router-dom"
+import { useEffect, useState, useRef } from 'react';
+import {BrowserRouter, Route} from "react-router-dom"
 import History from './components/History';
 import { Homepage } from './components/Homepage';
 import { Rockets } from './components/Rockets';
 import { Ships } from './components/Ships';
 import { Details } from './components/DetailsScreen';
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
+import { Search } from "./components/Search";
  
+var historyresults = "", shipresults = "", rocketresults = "";
+
 function App() {
   const [history, setHistory] = useState([]);
   const [rockets, setRockets] = useState([]);
   const [ships, setShips] = useState([]);
+  const ref = useRef();
+
+
+  //Setting default values
+  if(historyresults.length === 0)
+    {historyresults = [...history];}
+
+  if(shipresults.length === 0)
+    {shipresults = [...ships];}
+    
+  if(rocketresults.length === 0)
+    {rocketresults = [...rockets];}
 
   //Toggling nav bar menu 
   const handleMenuClick = () => {
-    var display = document.getElementById('nav')
-    if(display.style.display === "block")
+    let element = ref.current
+    let display = element.style.display
+    if(display === "block")
     {
-      display.style.display = "none";
+      element.style.display = "none";
     }
     else{
-      display.style.display = "block";
+      element.style.display = "block";
     }
   }
 
@@ -65,6 +81,38 @@ function App() {
     setShips(response);
   }
 
+  //Search Functionality
+  const searchData = (value) => {
+    var path = window.location.pathname;
+    if(path === "/history")
+    {
+      if(value)
+        {var historysearch = historyresults.filter(element => element.title.toLowerCase().includes(value.toLowerCase()))
+         setHistory(historysearch);}
+      else{
+        setHistory(historyresults)
+        }
+    }
+    else if(path === "/ships")
+    {
+      if(value)
+        {var shipsearch = shipresults.filter(element => element.ship_name.toLowerCase().includes(value.toLowerCase()))
+          setShips(shipsearch);}
+      else{
+          setShips(shipresults)
+        }
+    }
+    else if(path === "/rockets")
+    {
+      if(value)
+        {var rocketsearch = rocketresults.filter(element => element.rocket_name.toLowerCase().includes(value.toLowerCase()))
+          setRockets(rocketsearch);}
+      else{
+          setRockets(rocketresults)
+        }
+    }
+}
+
   useEffect(() => {
     fetchHistory()
     fetchRockets()
@@ -73,14 +121,13 @@ function App() {
 
   return (
     <BrowserRouter>
-    <Switch>
     <div className="App">
       {/* Navigation Menu */}
       <div className="navigation">
         <div className="logo">
           <a href="/"><img src={Logo} alt="Logo"/></a>
         </div>
-        <div id="nav" className="links">
+        <div id="nav" ref={ref} className="links">
           <div className="nav">
         <a href="/history">History</a>
         <a href="/ships">Ships</a>
@@ -88,11 +135,17 @@ function App() {
         </div>
       </div>
       {/* Responsive Navigation Menu */}
-      <label for="">
+      <label htmlFor="">
           <AiOutlineMenu className="menu-btn" onClick={handleMenuClick}/>
           <AiOutlineClose className="close-btn"/>
       </label>
       </div>
+
+      {/*Search Component*/}
+      <div className={window.location.pathname === "/" ? "hide" : ""}>
+      <Search searchFunc={searchData}/>
+      </div>
+
       {/* Home Screen */}
       <div className={window.location.pathname === "/" ? "home" : "hide"}>
       {homescreen.map((detail)=> {
@@ -101,6 +154,7 @@ function App() {
         )
       })};
       </div>
+      
       {/* History Screen */}
       <div className={window.location.pathname === "/history" ? "grid gridhistory" : "hide"}>
       {history.map((record) => {
@@ -109,14 +163,16 @@ function App() {
         )
       })}
       </div>
+      
       {/* Rockets Screen */}
-      <div className={window.location.pathname === "/rockets" ? "grid" : "hide"}>
+      <div className={window.location.pathname === "/rockets" ? "gridrocket" : "hide"}>
       {rockets.map((record) => {
         return( 
           <Route path="/rockets" component={() => <Rockets key={record.id} record={record}/>} />
         )
       })}
       </div>
+      
       {/* Ships Screen */}
       <div className={window.location.pathname === "/ships" ? "grid" : "hide"}>
       {ships.map((record) => {
@@ -125,10 +181,10 @@ function App() {
         )
       })}
       </div>
+      
       {/* Detials Screen */}
       <Route path="/details" component={() => <Details />} />
     </div>
-    </Switch>
     </BrowserRouter>
   );
 }

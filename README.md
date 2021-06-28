@@ -39,6 +39,8 @@ In the given time I was able to develop,
 
 Home Screen with Menu's (History, Ships and Rockets)
 
+![HomeScreen](/src/assets/spacex_logo.png)
+
 Sub Pages for the Menu Items
 
 Details Page for the selected record.

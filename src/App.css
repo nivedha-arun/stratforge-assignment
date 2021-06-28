@@ -86,18 +86,35 @@
 .grid.gridhistory{
   width: 95%;
   grid-gap: 20rem 10rem;
-  grid-template-columns: repeat(3, minmax(200px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: fit-content(20%);
   align-items: stretch;
+  min-height: 0;  
+  min-width: 0;
+}
+
+.gridrocket{
+  height: 100%;
+  width: 100%;
+  margin: 0 3rem;
+  top: 16rem;
+  grid-gap: 30px;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  -webkit-align-items: center;
+  align-items: center;
+  position: absolute;
 }
 
 .grid{
   height: 100%;
   width: 100%;
   margin: 0px 3rem;
-  top: 6rem;
+  top: 15rem;
   grid-gap: 30px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: fit-content(20%);
   align-items: center;
   position: absolute;
 }
@@ -320,6 +337,28 @@
   text-shadow: 1px 1px #ffdfdf;
 }
 
+/*Search Component*/
+.search{
+  width: 100%;
+  top: 9rem;
+  position: absolute;
+  display: flex;
+}
+
+.search input[type="text"]{
+  padding: 23px;
+  margin: 1px 0 0 24rem;
+  width: 57%;
+  border-radius: 30px;
+}
+
+.search input[type="button"]{
+  border-radius: 30px;
+  width: 12%;
+  position: relative;
+  margin-left: 22px;
+}
+
 @media (max-width: 1024px){
   .logo img{
     width: 30%;
@@ -347,6 +386,11 @@
   .description {
     top: 200%;
   }
+
+  .search input[type="text"] {
+    margin: 0px 0 0 9rem;
+    width: 73%;
+  }
 }
 
 @media (max-width: 768px){
@@ -360,6 +404,7 @@
   }
 
   .grid {
+    margin: 0px 1.2rem;
     grid-gap: 2rem 3rem !important;
 }
 
@@ -424,6 +469,11 @@
     right: 2rem;
     line-height: 4rem;
   }
+
+  .search input[type="text"] {
+    margin: 0px 0 0 5rem;
+    width: 79%;
+  }
 }
 
 @media (max-width: 500px){
@@ -439,7 +489,8 @@
     font-size: 1.5rem;
   }
 
-  .grid, .grid.gridhistory{
+  .grid, .grid.gridhistory, .gridrocket{
+    margin: 0px 0.5rem;
     grid-template-columns: repeat(1, 1fr);
   }
 
@@ -492,6 +543,21 @@
   }
 
   .grid {
+    top: 13rem;
+    margin: 0px 1.5rem;
+  }
+
+  .gridrocket{
+    top: 10rem;
     margin: 0px 0.5rem;
+  }
+
+  .search{
+    top: 6rem;
+  }
+
+  .search input[type="text"] {
+    margin: 0px 0 0 .6rem;
+    width: 100%;
   }
 }
