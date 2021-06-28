@@ -347,7 +347,7 @@
 
 .search input[type="text"]{
   padding: 23px;
-  margin: 1px 0 0 18rem;
+  margin: 1px 0 0 24rem;
   width: 57%;
   border-radius: 30px;
 }
@@ -462,7 +462,8 @@
   }
 
   .nav{
-    top: 3.1rem;
+    background-color: #5c5c61e0;
+    top: 5.1rem;
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -530,7 +531,8 @@
   }
 
   .nav{
-    top: 3.1rem;
+    background-color: #5c5c61e0;
+    top: 4.1rem;
     position: absolute;
     display: flex;
     flex-direction: column;
