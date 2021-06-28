@@ -14,6 +14,7 @@ function App() {
   const [rockets, setRockets] = useState([]);
   const [ships, setShips] = useState([]);
 
+  //Toggling nav bar menu 
   const handleMenuClick = () => {
     var display = document.getElementById('nav')
     if(display.style.display === "block")
@@ -25,6 +26,7 @@ function App() {
     }
   }
 
+  //Default data for Homescreen information
   const homescreen = [{
     id: "1",
     category: "Recent Launch",
@@ -42,18 +44,21 @@ function App() {
     url: "https://www.spacex.com/static/images/crew-2/splashdown/Crew-1_Crew_Desktop.webp"
   }];
 
+  //Service call to fetch History data
   const fetchHistory = async() => {
     const response = await fetch('https://api.spacexdata.com/v3/history')
     .then((response) => response.json())
     setHistory(response);
   }
 
+  //Service call to fetch Rockets data
   const fetchRockets = async() => {
     const response = await fetch('https://api.spacexdata.com/v3/rockets')
     .then((response) => response.json())
     setRockets(response);
   }
 
+  //Service call to fetch Ships data
   const fetchShips = async() => {
     const response = await fetch('https://api.spacexdata.com/v3/ships')
     .then((response) => response.json())
@@ -70,6 +75,7 @@ function App() {
     <BrowserRouter>
     <Switch>
     <div className="App">
+      {/* Navigation Menu */}
       <div className="navigation">
         <div className="logo">
           <a href="/"><img src={Logo} alt="Logo"/></a>
@@ -81,11 +87,13 @@ function App() {
         <a href="/rockets">Rockets</a>
         </div>
       </div>
+      {/* Responsive Navigation Menu */}
       <label for="">
-          < AiOutlineMenu className="menu-btn" onClick={handleMenuClick}/>
-          < AiOutlineClose className="close-btn"/>
+          <AiOutlineMenu className="menu-btn" onClick={handleMenuClick}/>
+          <AiOutlineClose className="close-btn"/>
       </label>
       </div>
+      {/* Home Screen */}
       <div className={window.location.pathname === "/" ? "home" : "hide"}>
       {homescreen.map((detail)=> {
         return(
@@ -93,6 +101,7 @@ function App() {
         )
       })};
       </div>
+      {/* History Screen */}
       <div className={window.location.pathname === "/history" ? "grid gridhistory" : "hide"}>
       {history.map((record) => {
         return( 
@@ -100,6 +109,7 @@ function App() {
         )
       })}
       </div>
+      {/* Rockets Screen */}
       <div className={window.location.pathname === "/rockets" ? "grid" : "hide"}>
       {rockets.map((record) => {
         return( 
@@ -107,6 +117,7 @@ function App() {
         )
       })}
       </div>
+      {/* Ships Screen */}
       <div className={window.location.pathname === "/ships" ? "grid" : "hide"}>
       {ships.map((record) => {
         return( 
@@ -114,6 +125,7 @@ function App() {
         )
       })}
       </div>
+      {/* Detials Screen */}
       <Route path="/details" component={() => <Details />} />
     </div>
     </Switch>

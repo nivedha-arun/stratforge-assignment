@@ -3,9 +3,13 @@ import { useHistory } from 'react-router-dom';
 export const Details = () => {
     let tableDets = []
     var image = "", title= "", description= "";
+
+    //Have used useHistory to get the navigated from details and state
     const history = useHistory();
     var detail = history.location.state.detail;
     var navigation = history.location.navigatedFrom;
+
+    //Format data for the Rocket details screen
     if (navigation === "Rockets") {
         var params = ["company", "diameter", "height", "mass", "cost_per_launch", "success_rate_pct"]
         image = detail.flickr_images[1];
@@ -31,6 +35,7 @@ export const Details = () => {
             )
         })
     }
+    //Format data for the Ship details screen
     else if(navigation === "Ships"){
         image = detail.image;
         title = detail.ship_name;
@@ -55,7 +60,6 @@ export const Details = () => {
         )
     }
 
-
     return (
         <div className="detailsScreen">
             <div className="detailsBackground"
@@ -70,6 +74,8 @@ export const Details = () => {
                     <h1>{title}</h1>
                 </div>
             </div>
+
+            {/* Overview Section */}
             <div className="info">
                 <h1 className="info-title"> Overview </h1>
                 {tableDets.map((record) => {
@@ -78,9 +84,10 @@ export const Details = () => {
                             <h1>{record.name}</h1>
                             <h1>{record.data}</h1>
                         </div>
-                    )
-                })}
+                    )})}
             </div>
+
+            {/* Description Section */}
             <div className={description ? "description" : "hide"}>
                 <h1>Description</h1>
                 <p>{description}</p>

@@ -1,6 +1,8 @@
 import { useHistory } from 'react-router-dom';
 
 export const Ships = ({record}) => { 
+
+  //Setting navigation related details and state to useHistory
   const history = useHistory();
   const handleClick = () => history.push({
     pathname: '/details',

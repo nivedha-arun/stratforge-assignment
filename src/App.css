@@ -1,8 +1,15 @@
+*,::before, ::after{
+  box-sizing: border-box;
+  margin: 0;
+}
+
+/* Logo */
 .logo img{
   width: 23%;
   background-color: #fff;
 }
 
+/* Navbar Menu */
 .navigation {
   top: 0;
   width: 100%;
@@ -27,11 +34,11 @@
   flex-direction: row;
 }
 
-*,::before, ::after{
-  box-sizing: border-box;
-  margin: 0;
+.navigation label{
+  display: none;
 }
 
+/* Homescreen */
 .home{
   height: 100%;
   position: absolute;
@@ -75,6 +82,7 @@
   font-weight: 300;
 }
 
+/* Sub-Menu Screen */
 .grid.gridhistory{
   width: 95%;
   grid-gap: 20rem 10rem;
@@ -226,6 +234,7 @@
   margin: 10px;
 }
 
+/* Details Screen */
 .info{
   line-height: 4rem;
   margin: auto;
@@ -277,6 +286,7 @@
   line-height: 10rem;
 }
 
+/* Ships Screen */
 .content-title {
   color: #fefefe;
   text-align: center;
@@ -307,10 +317,6 @@
 .secondary-content .readmore{
   padding: 33px 0 0;
   text-shadow: 1px 1px #ffdfdf;
-}
-
-.navigation label{
-  display: none;
 }
 
 @media (max-width: 1024px){
