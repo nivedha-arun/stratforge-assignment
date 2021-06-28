@@ -1,6 +1,6 @@
 import './App.css';
 import { useEffect, useState } from 'react';
-import {BrowserRouter, Route} from "react-router-dom"
+import {BrowserRouter, Route, Switch} from "react-router-dom"
 import History from './components/History';
 import { Homepage } from './components/Homepage';
 import { Rockets } from './components/Rockets';
@@ -55,6 +55,7 @@ function App() {
 
   return (
     <BrowserRouter>
+    <Switch>
     <div className="App">
       <div className="navigation">
         <div className="logo">
@@ -96,6 +97,7 @@ function App() {
       </div>
       <Route path="/details" component={() => <Details key=""/>} />
     </div>
+    </Switch>
     </BrowserRouter>
   );
 }
