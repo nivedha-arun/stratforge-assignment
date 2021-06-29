@@ -257,7 +257,7 @@
   margin: auto;
   width: 50%;
   color: white;
-  top: 59rem;
+  top: 39rem;
   position: relative;
 }
 
@@ -346,7 +346,7 @@
 
 .search input[type="text"]{
   padding: 23px;
-  margin: 1px 0 0 24rem;
+  margin: 1px 0 0 19rem;
   width: 57%;
   border-radius: 30px;
 }
