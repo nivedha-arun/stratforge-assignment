@@ -1,14 +1,12 @@
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 
 export const Ships = ({record}) => { 
 
-  //Setting navigation related details and state to useHistory
+  //Setting navigation details to useHistory
   const history = useHistory();
-  const handleClick = () => history.push({
-    pathname: '/details',
-    state: { detail: record },
+  const handleClick = () => {history.push({
     navigatedFrom : "Ships"
-  })
+  })}
 
     return(
         <div className="textcontainer">
@@ -21,7 +19,7 @@ export const Ships = ({record}) => {
           <div className="secondary-content" onClick={handleClick}>
             <h2>Ship Type : {record.ship_type}</h2>
             <h2>Home Port : {record.home_port}</h2>
-            <button className="readmore" type="button" onClick={handleClick}>Know More...</button>
+            <Link className="readmore" to={`/ships/${record.ship_id}`} onClick={handleClick}>Know More...</Link>
           </div>
       </div>
       </div>

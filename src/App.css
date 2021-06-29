@@ -232,7 +232,6 @@
   cursor: pointer;
   font-size: 1.5rem;
   font-weight: 600;
-  padding: 15px;
 }
 
 .card-text{
@@ -258,7 +257,7 @@
   margin: auto;
   width: 50%;
   color: white;
-  top: 42rem;
+  top: 59rem;
   position: relative;
 }
 
@@ -295,7 +294,7 @@
   padding: 0px 13rem 6rem;
   color: white;
   position: absolute;
-  top: 200%;
+  top: 180%;
   overflow-wrap: break-word;
 }
 
@@ -347,7 +346,7 @@
 
 .search input[type="text"]{
   padding: 23px;
-  margin: 1px 0 0 19rem;
+  margin: 1px 0 0 24rem;
   width: 57%;
   border-radius: 30px;
 }
